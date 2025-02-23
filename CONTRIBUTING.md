@@ -1,0 +1,58 @@
+# Contributing to lsc-storage
+
+Thank you for considering contributing to **lsc-storage**! Your support helps us improve and maintain this project.
+
+## How Can You Contribute?
+
+We welcome various forms of contributions, including:
+
+- **Reporting Bugs**: If you encounter any issues, please [open an issue](https://github.com/devlopersabbir/lsc-storage/issues) with detailed information.
+- **Suggesting Enhancements**: Have an idea to improve the project? Share it by [opening an issue](https://github.com/devlopersabbir/lsc-storage/issues).
+- **Submitting Pull Requests**: Ready to contribute code? Follow the steps below to get started.
+
+## Getting Started
+
+1. **Fork the Repository**: Click the "Fork" button at the top right corner of the [repository page](https://github.com/devlopersabbir/lsc-storage).
+
+2. **Clone Your Fork**: Clone your forked repository to your local machine.
+
+   ```bash
+   git clone https://github.com/your-username/lsc-storage.git
+   ```
+
+3. **Install Dependencies:** Install the necessary dependencies using npm:
+   ```bash
+   bun install
+   ```
+4. **Create a New Branch:** Create a new branch for your feature or bug fix:
+
+   ```bash
+   git checkout -b your-branch-name
+   ```
+
+5. **Make Changes:** Implement your changes in the codebase.
+
+6. **Test Your Changes:** Ensure that your changes do not break existing functionality:
+   ```bash
+   bun run test
+   ```
+7. **Commit Your Changes:** Commit your changes with a descriptive commit message:
+   ```bash
+   git add .
+   git commit -m "Description of your changes"
+   ```
+8. **Push to Your Fork:** Push your changes to your forked repository:
+   ```bash
+   git push origin your-branch-name
+   ```
+9. **Open a Pull Request:** Go to the original repository and [open a pull request](https://github.com/devlopersabbir/lsc-storage/pulls) with a clear description of your changes
+
+## Code of Conduct
+
+Please adhere to the project's [Code of Conduct](./CODE_OF_CONDUCT) to ensure a welcoming environment for all contributors.
+
+## License
+
+By contributing to lsc-storage, you agree that your contributions will be licensed under the [MIT License](./LICENSE).
+
+We appreciate your time and effort in improving `lsc-storage`. Happy coding!
