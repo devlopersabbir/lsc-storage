@@ -4,6 +4,7 @@
   "description": "A simple storage library that helps you to manage your local storage, session storage and cookie storage.",
   "main": "libs/index.js",
   "types": "libs/index.d.ts",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/devlopersabbir/dev-http-logger"
@@ -33,17 +34,20 @@
     "storage manager",
     "storage utility"
   ],
-  "scripts": {
-    "dev": "tsx --watch src/index.ts",
-    "build": "tsc && tsc-alias",
-    "prepare": "npm run build"
-  },
   "devDependencies": {
     "@types/node": "^22.13.4",
+    "@vitest/spy": "^3.0.6",
     "prettier": "^3.5.1",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.10",
     "tsx": "^4.19.3",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.6"
+  },
+  "scripts": {
+    "dev": "tsx --watch src/index.ts",
+    "test": "vitest --config vitest.config.js",
+    "build": "tsc && tsc-alias",
+    "prepare": "npm run build"
   }
 }
