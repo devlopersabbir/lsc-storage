@@ -3,7 +3,7 @@ name: Publish to NPM
 on:
   push:
     branches:
-      - main # or whatever your main branch is, e.g., 'master'
+      - main
     paths:
       - "package.json"
       - "bun.lockb"
@@ -13,28 +13,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the code
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18" # Specify the Node.js version you want to use
+          node-version: "18"
+          registry-url: "https://registry.npmjs.org/"
 
-      # Step 3: Install dependencies
       - name: Install dependencies
-        run: npm i -g bun@latest # Install bun globally
-      - name: Install dependencies
-        run: bun install # Install dependencies
+        run: npm i -g bun@latest
 
-      # Step 4: Build your package (if necessary, otherwise skip)
+      - name: Install dependencies
+        run: bun install
+
       - name: Build your package (optional)
-        run: npm run build # Remove this step if you don't have a build script
+        run: npm run build # Remove if no build step
 
-      # Step 5: Publish to npm
       - name: Publish to npm
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
