@@ -31,6 +31,16 @@ jobs:
       - name: Build your package (optional)
         run: npm run build # Remove if no build step
 
+      - name: Check if 'examples' has changes
+        run: |
+          git fetch origin main
+          if git diff --name-only origin/main...HEAD | grep -E '^(examples)/'; then
+            echo "Changes detected in 'examples'. Skipping publish."
+            exit 0
+          else
+            echo "No changes in 'src'. Proceeding with publish."
+          fi
+
       - name: Publish to npm
         run: npm publish --access public
         env:
