@@ -1,0 +1,20 @@
+  name: Issue Comment
+
+  on:
+    issues:
+      types: [opened]
+
+  jobs:
+    comment:
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v2
+
+        - name: Add comment
+          uses: wow-actions/auto-comment@v1
+          with:
+            body: |
+              Hello @${{ github.actor }} 🎉,
+              Thank you for creating your issue! We are happy to see your issue & we will review your issue shortly.
+              Repository OWNER @devlopersabbir, please check ASAP 🚀
