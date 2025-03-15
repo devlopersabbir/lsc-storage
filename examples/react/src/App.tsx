@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { lscStorage } from "lsc-storage";
+import { lsc } from "lsc-storage";
 import "./App.css";
 
 type User = {
@@ -20,17 +20,11 @@ function App() {
         type="text"
       />
 
-      <button
-        onClick={() => {
-          lscStorage("user", data);
-        }}
-      >
-        add
-      </button>
+      <button onClick={() => lsc.set("user", data)}>add</button>
       <p>{output?.name}</p>
       <button
         onClick={async () => {
-          const res = await lscStorage<User>("user");
+          const res = lsc.get<User>("user");
           if (res) {
             setOutput(res);
           } else {
