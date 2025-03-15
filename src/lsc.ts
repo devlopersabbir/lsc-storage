@@ -53,11 +53,7 @@ class LscStorage {
    * lscStorage.set("username", "JohnDoe");
    * lscStorage.set<number>("age", 30);
    */
-  public set<T = unknown>(
-    key: string,
-    value: T,
-    localConfig: Omit<StorageConfig, "storage"> = {}
-  ): void | boolean {
+  public set<T = unknown>(key: string, value: T, localConfig: Omit<StorageConfig, "storage"> = {}): void | boolean {
     this.main();
     const _config = { ...this.config(), ...localConfig };
     try {
@@ -78,10 +74,7 @@ class LscStorage {
    * const username = lscStorage.get<string>("username");
    * const age = lscStorage.get<number>("age");
    */
-  public get<T = unknown>(
-    key: string,
-    localConfig: Omit<StorageConfig, "storage"> = {}
-  ): T | null {
+  public get<T = unknown>(key: string, localConfig: Omit<StorageConfig, "storage"> = {}): T | null {
     this.main();
     const _config = { ...this.config(), ...localConfig };
     try {
