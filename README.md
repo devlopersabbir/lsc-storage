@@ -22,23 +22,23 @@ npm install lsc-storage
 To store data in local storage, pass the key and value as arguments:
 
 ```ts
-import { lscStorage } from "lsc-storage";
+import { lsc } from "lsc-storage";
 type User = {
   name: string;
   age: 25;
 };
 
-await lscStorage("user", { name: "John Doe", age: 25 }); // lsc-storage is enough expert to knows the type
-await lscStorage<User>("user", { name: "John Doe", age: 25 });
+lsc.set("user", { name: "John Doe", age: 25 }); // lsc-storage is enough expert to knows the type
+lsc.get<User>("user", { name: "John Doe", age: 25 });
 ```
 
 **Retrieve Data from Local Storage**
 To retrieve stored data, pass only the key:
 
 ```ts
-import { lscStorage } from "lsc-storage";
+import { lsc } from "lsc-storage";
 
-const user = await lscStorage("user");
+const user = lsc.get("user");
 console.log(user); // { name: "John Doe", age: 25 }
 ```
 
@@ -50,20 +50,66 @@ If an error occurs (e.g., exceeding the storage quota), it will be logged to the
 Storage is full, please clear some space!
 ```
 
-## API Reference
+# API Reference
 
-### `lscStorage(key: string, value: T): Promise<void>`
+#### `set<T>(key: string, value: T, localConfig?: Omit<StorageConfig, 'storage'>): void | boolean`
 
-- **Parameters**:
-  - `key`: The key used to store the data.
-  - `value`: The value to be stored (optional when retrieving).
-- **Returns**: A promise that resolves when the data is stored.
+Stores a value in storage under the specified key.
 
-### `lscStorage(key: string): Promise<T | null>`
+- **Parameters:**
 
-- **Parameters**:
-  - `key`: The key used to retrieve the data.
-- **Returns**: The data stored in local storage, or `null` if not found.
+  - `key` (string): The key under which the value is stored.
+  - `value` (T): The value to store.
+  - `localConfig` (Optional): Configuration object to override default settings, excluding the `storage` property.
+
+- **Returns:** `void` if the operation is successful, or `boolean` (`false`) if an error occurs during storage.
+
+#### `get<T>(key: string, localConfig?: Omit<StorageConfig, 'storage'>): T | null`
+
+Retrieves the value associated with the specified key.
+
+- **Parameters:**
+
+  - `key` (string): The key of the item to retrieve.
+  - `localConfig` (Optional): Configuration object to override default settings, excluding the `storage` property.
+
+- **Returns:** The value associated with the key, or `null` if the key does not exist or an error occurs during retrieval.
+
+#### `remove(key: string): void`
+
+Removes the item associated with the specified key from storage.
+
+- **Parameters:**
+
+  - `key` (string): The key of the item to remove.
+
+- **Returns:** `void`
+
+#### `clear(): void`
+
+Clears all items from storage.
+
+- **Returns:** `void`
+
+#### `flush(force?: boolean): void`
+
+Clears expired items from storage. If `force` is `true`, all items are cleared regardless of expiration.
+
+- **Parameters:**
+
+  - `force` (Optional, boolean): If `true`, all items are cleared. Defaults to `false`.
+
+- **Returns:** `void`
+
+## `localMemoryStore`
+
+A utility function that creates an in-memory storage object implementing the `Storage` interface. This is used as a fallback when the desired storage is unavailable.
+
+```typescript
+const memoryStorage = localMemoryStore();
+memoryStorage.setItem("key", "value");
+console.log(memoryStorage.getItem("key")); // Outputs: 'value'
+```
 
 ## License
 
@@ -84,3 +130,7 @@ If you encounter any bugs or issues, please open an issue on the [GitHub Issues]
 
 - [Repository](https://github.com/devlopersabbir/lsc-storage)
 - [Homepage](https://github.com/devlopersabbir/lsc-storage#readme)
+
+```
+
+```
