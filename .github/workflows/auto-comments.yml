@@ -6,10 +6,10 @@ jobs:
     steps:
       - uses: wow-actions/auto-comment@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.READ_WRITE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Use the renamed secret
           issuesOpened: |
             Hello @{{ author }}👋 
-            Thank you for raising an issue. We will will investigate into the matter and get back to you as soon as possible.
+            Thank you for raising an issue. We will investigate the matter and get back to you as soon as possible.
             Please make sure you have given us as much context as possible.
             Repository OWNER @devlopersabbir, please check ASAP 🚀
 
