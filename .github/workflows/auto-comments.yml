@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: wow-actions/auto-comment@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.lsc-storage }}
+          GITHUB_TOKEN: ${{ secrets.READ_WRITE_TOKEN }}
           issuesOpened: |
             Hello @{{ author }}👋 
             Thank you for raising an issue. We will will investigate into the matter and get back to you as soon as possible.
