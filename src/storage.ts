@@ -5,6 +5,7 @@
  * @param {T} value The value to store in local storage
  * @returns {Promise<void>} Returns nothing
  *
+ *
  * @example
  * // Store data in local storage
  * await lscStorage("user", { name: "John Doe", age: 25 });
