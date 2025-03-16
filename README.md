@@ -91,10 +91,11 @@ lsc.flush();
 lsc.flush(true);
 ```
 
+
 # API Reference
 
-| Method/Function      | Signature                                                                          | Description                                                                                                | Parameters                                                       | Return Type                                                                                                          |
-| -------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| Method/Function| Signature | Description  | Parameters  | Return Type    |
+|-|-|-|-|-|
 | **set<T>**           | `set<T>(key: string, value: T, localConfig?: Omit<StorageConfig, 'storage'>): void | boolean`                                                                                                   | Stores a value in storage under the specified key.               | **key**: string<br>**value**: T<br>**localConfig** (optional): Configuration object (excluding `storage`)            | `void` if successful, `false` if error occurs  |
 | **get<T>**           | `get<T>(key: string, localConfig?: Omit<StorageConfig, 'storage'>): T              | null`                                                                                                      | Retrieves the value associated with the specified key.           | **key**: string<br>**localConfig** (optional): Configuration object (excluding `storage`)                            | Returns the stored value of type `T` or `null` |
 | **remove**           | `remove(key: string): void`                                                        | Removes the item associated with the specified key from storage.                                           | **key**: string                                                  | `void`                                                                                                               |
@@ -103,6 +104,7 @@ lsc.flush(true);
 | **localMemoryStore** | `localMemoryStore(): Storage`                                                      | Creates an in-memory storage object that implements the `Storage` interface. Used as a fallback mechanism. | _None_                                                           | `Storage`                                                                                                            |
 | **StorageConfig**    | `{ storage?: Storage; ttl?: number                                                 | null }`                                                                                                    | Interface defining configuration options for storage operations. | **storage** (optional): Storage mechanism (e.g., `localStorage`)<br>**ttl** (optional): Time-to-live in milliseconds | _Interface_ (no return value)                  |
 | **KeyValuePair**     | `type KeyValuePair<T = unknown> = Record<string, T>;`                              | Type representing an object with string keys and values of type `T`.                                       | _None_                                                           | _Type definition_                                                                                                    |
+
 
 # Development
 
