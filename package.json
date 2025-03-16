@@ -1,6 +1,6 @@
 {
   "name": "lsc-storage",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple storage library that helps you to manage your local storage, session storage and cookie storage.",
   "main": "libs/index.js",
   "types": "libs/index.d.ts",
