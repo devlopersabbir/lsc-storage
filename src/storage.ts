@@ -1,4 +1,5 @@
 /**
+ * @deprecated
  * Store data in local storage
  * @param {string} key The key to store the data in local storage
  * @param {T} value The value to store in local storage
@@ -8,12 +9,10 @@
  * // Store data in local storage
  * await lscStorage("user", { name: "John Doe", age: 25 });
  */
-export async function lscStorage<T extends Record<string, any>>(
-  key: string,
-  value: T
-): Promise<void>;
+export async function lscStorage<T extends Record<string, any>>(key: string, value: T): Promise<void>;
 
 /**
+ * @deprecated
  * Retrieve data from local storage
  * @param {string} key The key to retrieve data from local storage
  * @returns {Promise<T | null>} Returns the data stored in local storage or null if no data is found
@@ -23,11 +22,10 @@ export async function lscStorage<T extends Record<string, any>>(
  * const user = await lscStorage("user");
  * console.log(user); // { name: "John Doe", age: 25 }
  */
-export async function lscStorage<T extends Record<string, any>>(
-  key: string
-): Promise<T | null>;
+export async function lscStorage<T extends Record<string, any>>(key: string): Promise<T | null>;
 
 /**
+ * @deprecated
  * Store or retrieve data from local storage
  * @param {string} key The key to store or retrieve data in local storage
  * @param {T} value The value to store in local storage (optional, only needed for storing)
@@ -41,10 +39,7 @@ export async function lscStorage<T extends Record<string, any>>(
  * const user = await lscStorage("user");
  * console.log(user); // { name: "John Doe", age: 25 }
  */
-export async function lscStorage<T extends Record<string, any>>(
-  key: string,
-  value?: T
-): Promise<T | string> {
+export async function lscStorage<T extends Record<string, any>>(key: string, value?: T): Promise<T | string> {
   try {
     if (value !== undefined) {
       localStorage.setItem(key, JSON.stringify(value));
