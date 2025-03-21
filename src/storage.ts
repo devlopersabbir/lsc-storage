@@ -40,7 +40,9 @@ export async function lscStorage<T extends Record<string, any>>(key: string): Pr
  * const user = await lscStorage("user");
  * console.log(user); // { name: "John Doe", age: 25 }
  */
+
 export async function lscStorage<T extends Record<string, any>>(key: string, value?: T): Promise<T | string> {
+  // this method need to be remove as soon as possible
   try {
     if (value !== undefined) {
       localStorage.setItem(key, JSON.stringify(value));
